@@ -11,14 +11,14 @@ $form=[ //空にする
     
 ];
 }
-$error=[];//配列を初期化する必要がある
+$error=[];//配列を初期化
 
 
 //フォームの内容をチェック
 if($_SERVER['REQUEST_METHOD']==='POST'){
 $form['name']=filter_input(INPUT_POST,'name',FILTER_SANITIZE_STRING);
 if ($form['name']===''){
-    $error['name']='blank';//echoでメッセージを出力しても左上に出てしまうので、エラーが出た事実だけ受け取る
+    $error['name']='blank';
     }
 
     $form['email']=filter_input(INPUT_POST,'email',FILTER_SANITIZE_EMAIL);
@@ -50,7 +50,7 @@ if ($form['name']===''){
 }
 //画像のチェック
 $image = $_FILES['image'];
-if($image['name'] !== '' && $image['error']=== 0){//nameはファイルの名前を示している
+if($image['name'] !== '' && $image['error']=== 0){
 $type = mime_content_type($image['tmp_name']);
 if($type !=='image/png' && $type !== 'image/jpeg'){
     $error['image']='type';
