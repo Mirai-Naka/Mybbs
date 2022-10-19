@@ -6,7 +6,7 @@ function h($value){
 
 //dbへの接続
 function dbconnect(){
-    $db = new mysqli('localhost','root','root','my_bbs');
+    $db = new mysqli('us-cdbr-east-06.cleardb.net', 'b5aaf9d54ebf04', 'dc5e6fcf', 'heroku_6a1f0d0050fbc9b');
     if(!$db){//上手く接続できなかった時エラーに出力
 		die($db->error);
 	}
